@@ -13,6 +13,20 @@
 
     {{ article.body | linebreaks }}
 
+    {% comment %} RECOMMEND THE SIMILAR ARTICLES TO THE USER {% endcomment %}
+    <h2> Similar Articles</h2>
+
+    {% for article in similar_articles %}
+        <p>
+            <a href="{{ article.get_absolute_url }}">
+                {{ article.title }}
+            </a>
+        </p>
+        {% empty %}
+            There are no similar articles yet.
+    {% endfor %}
+
+
     {% comment %} ALLOW PEOPLE TO SHARE THE POST {% endcomment %}
     <p>
         <a href="{% url 'newsApp:article_share' article.id %}">
@@ -21,11 +35,12 @@
     </p>
 
     {% with comments.count as total_comments %} 
-        <h2> 
+        <h4> 
             {{ total_comments }} comment{{ total_comments|pluralize }}
-        </h2>
+        </h4>
     {% endwith %}
 
+    
     {% comment %} BELOW ARE THE LIST OF COMMENTS {% endcomment %}
     {% for comment in comments %}
         <div class="comment">
@@ -34,9 +49,9 @@
                 Comment {{ forloop.counter }} by {{ comment.name }}
                 {{ comment.created }}
             </p>
-            <h4>
+            <h6>
                 {{ comment.body }}
-            </h4>
+            </h6>
             
         </div>
 

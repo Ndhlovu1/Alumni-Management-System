@@ -8,12 +8,12 @@ from django.core.mail import send_mail
 
 #Allow Tagging 
 from taggit.models import Tag
-
-
 """
 CLASS BASED VIEWS IMPORTS
 """
 from django.views.generic import ListView
+
+from django.db.models import Count
 
 # Create your views here.
 """
@@ -88,9 +88,17 @@ def article_details(req, year, month, day, article):
     else:
         comment_form = CommentForm()
 
-    return render(req, 'news/article/detail.html',{'article':article, 'comments':comments,
+    #List of similar articles
+    article_tags_ids = article.tags.values_list('id',flat=True)
+    similar_articles = Article.publishedArticles.filter(tags__in=article_tags_ids).exclude(id=article.id)
+
+    
+
+    return render(req, 'news/article/detail.html',{
+        'article':article, 'comments':comments,
         'new_comment':new_comment,
         'comment_form': comment_form,
+        'similar_articles':similar_articles,
         })
 
 
