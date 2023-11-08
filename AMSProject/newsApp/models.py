@@ -35,8 +35,6 @@ class Article(models.Model):
         ('published','Published'),
     )
 
-   
-
     #Create the title for the article
     title = models.CharField(max_length=250)
     #Url Slug
