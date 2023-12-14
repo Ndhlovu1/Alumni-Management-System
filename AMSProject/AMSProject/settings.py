@@ -94,10 +94,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         
         #SettingUp a PostGre Sql Password
-        # 'ENGINE':'django.db.backends.postgresql',
-        # 'NAME':'postgres',
-        # 'USER':'postgres',
-        # 'PASSWORD':'',
+        #'ENGINE':'django.db.backends.postgresql',
+        #'NAME':'postgres',
+        #'USER':'postgres',
+        #'PASSWORD':'123456789',
     }
 }
 
