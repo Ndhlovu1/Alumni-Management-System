@@ -20,16 +20,20 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9t(f5bmmpif-2%iq2sb+^zidv_=f1%v_9gfxwzm0jt7!06%4mg'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+#'django-insecure-9t(f5bmmpif-2%iq2sb+^zidv_=f1%v_9gfxwzm0jt7!06%4mg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","FALSE").lower() == "true"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+#["*"]
 
 #Implementing a SITEMAP FUNCTIONALITY
 SITE_ID = 1
@@ -90,25 +94,20 @@ WSGI_APPLICATION = 'AMSProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default':{
-        
-        
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-        
-#         #SettingUp a PostGre Sql Password
-#         #'ENGINE':'django.db.backends.postgresql',
-#         #'NAME':'postgres',
-#         #'USER':'postgres',
-#         #'PASSWORD':'123456789',
-#     }
-# }
-
 DATABASES = {
-    "default" : dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default':{
+        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
+    }
 }
 
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url) 
+
+# EXTERNAL - "postgres://ams_database_user:S0G81huPjHAWYziczVIOYnlU898nsf9m@dpg-cm46is8cmk4c73ci11c0-a.oregon-postgres.render.com/ams_database"
+# INTERNAL - postgres://ams_database_user:S0G81huPjHAWYziczVIOYnlU898nsf9m@dpg-cm46is8cmk4c73ci11c0-a/ams_database
 
 
 # Password validation
