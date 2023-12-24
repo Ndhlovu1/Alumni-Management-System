@@ -43,6 +43,6 @@ urlpatterns = [
     path('career-advice/',include('careerAdviceApp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-#Auto_Create a url for the image 
+#Auto_Create a url for the image
 
 urlpatterns += staticfiles_urlpatterns()
