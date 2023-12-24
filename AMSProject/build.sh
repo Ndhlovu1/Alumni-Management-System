@@ -7,6 +7,8 @@ pip install --upgrade pip
 
 pip install pipenv
 
+pipenv shell
+
 pipenv install
 
 #python manage.py collectstatic --no-input
