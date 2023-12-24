@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-9t(f5bmmpif-2%iq2sb+^zidv_=f1%v_9gfxwzm0jt7!06%4mg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 #Implementing a SITEMAP FUNCTIONALITY
 SITE_ID = 1
