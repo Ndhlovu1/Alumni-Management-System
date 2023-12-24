@@ -6,8 +6,10 @@ name = "pypi"
 [packages]
 django = "==3.2"
 django-taggit = "==1.2.0"
-psycopg2-binary = "==2.8.4"
+psycopg2-binary = "*"
 pillow = "*"
+dj-database-url = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -20,6 +20,7 @@ from django.contrib.sitemaps.views import sitemap
 from newsApp.sitemaps import ArticleSitemap
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 #STYLE THE LANDING PAGE OF THE ADMIN
 admin.site.site_header = "NUST | AMS"
@@ -43,3 +44,5 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #Auto_Create a url for the image 
+
+urlpatterns += staticfiles_urlpatterns()
