@@ -7,7 +7,7 @@ pip install --upgrade pip
 
 pip install pipenv
 
-pipenv shell
+#pipenv shell
 
 pipenv install
 
