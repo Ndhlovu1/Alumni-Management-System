@@ -19,21 +19,20 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+#SECRET_KEY = os.environ.get("SECRET_KEY")
+
+SECRET_KEY = 'django-insecure-9t(f5bmmpif-2%iq2sb+^zidv_=f1%v_9gfxwzm0jt7!06%4mg'
 #'django-insecure-9t(f5bmmpif-2%iq2sb+^zidv_=f1%v_9gfxwzm0jt7!06%4mg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG","FALSE").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-#["*"]
+#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = []
 
 #Implementing a SITEMAP FUNCTIONALITY
 SITE_ID = 1
