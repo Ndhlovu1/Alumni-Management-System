@@ -4,8 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "Install": "PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy",
-    "Start": "python manage.py makemigrations && python manage.py migrate && gunicorn {AMSProject}.wsgi",
+    "startCommand": "python manage.py makemigrations && python manage.py migrate && gunicorn {AMSProject}.wsgi",
     "numReplicas": 1,
     "sleepApplication": false,
     "restartPolicyType": "ON_FAILURE",
