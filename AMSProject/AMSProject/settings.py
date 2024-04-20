@@ -94,16 +94,14 @@ WSGI_APPLICATION = 'AMSProject.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default':{
-        
+     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-
     }
 }
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url) 
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES["default"] = dj_database_url.parse(database_url) 
 
 # EXTERNAL - "postgres://ams_database_user:S0G81huPjHAWYziczVIOYnlU898nsf9m@dpg-cm46is8cmk4c73ci11c0-a.oregon-postgres.render.com/ams_database"
 # INTERNAL - postgres://ams_database_user:S0G81huPjHAWYziczVIOYnlU898nsf9m@dpg-cm46is8cmk4c73ci11c0-a/ams_database
