@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "python manage.py makemigrations && python manage.py migrate && gunicorn {AMSProject}.wsgi",
+    "startCommand": "python manage.py makemigrations && python manage.py migrate && gunicorn AMSProject.wsgi",
     "numReplicas": 1,
     "sleepApplication": false,
     "restartPolicyType": "ON_FAILURE",
